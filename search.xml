@@ -8,7 +8,7 @@
       <link href="/2019/05/16/%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E6%97%85/"/>
       <url>/2019/05/16/%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E6%97%85/</url>
       
-        <content type="html"><![CDATA[<p>-颠三倒四</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="记录一下本博客的诞生过程"><a href="#记录一下本博客的诞生过程" class="headerlink" title="记录一下本博客的诞生过程:"></a>记录一下本博客的诞生过程:</h3><ul><li><h4 id="这个博客使用的hexo博客框架，主题是ARIA"><a href="#这个博客使用的hexo博客框架，主题是ARIA" class="headerlink" title="这个博客使用的hexo博客框架，主题是ARIA"></a>这个博客使用的<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>博客框架，主题是<a href="https://github.com/AlynxZhou/hexo-theme-aria" target="_blank" rel="noopener">ARIA</a></h4></li><li><h4 id="该博客既运行在我的VPS上，也在我的github上有备份"><a href="#该博客既运行在我的VPS上，也在我的github上有备份" class="headerlink" title="该博客既运行在我的VPS上，也在我的github上有备份"></a>该博客既运行在我的VPS上，也在我的<a href="http://git.funwan.cn/" target="_blank" rel="noopener">github</a>上有备份</h4></li></ul><h3 id="下面正式开始"><a href="#下面正式开始" class="headerlink" title="下面正式开始"></a>下面正式开始</h3><ul><li><p>先安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs</a> , 根据你的操作系统下载比较新的版本就行。如果是Linux在用yum或者apt-get等工具下载的Nodejs，记得把npm也安装了。</p></li><li><p>然后安装hexo-cli，运行<br><code>npm install -g hexo-cli</code> 安装完成后用 <code>hexo -v</code> 查看一下版本信息<br><img src="source/" alt="&quot;hexo版本信息&quot;"></p></li><li></li></ul>]]></content>
       
       
       <categories>
