@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.funwan.cn/"/>
-  <updated>2019-05-17T08:07:30.944Z</updated>
+  <updated>2019-05-17T08:22:17.089Z</updated>
   <id>http://blog.funwan.cn/</id>
   
   <author>
@@ -17,13 +17,116 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MYSQL出现:ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing</title>
+    <link href="http://blog.funwan.cn/2019/05/17/MYSQL%E5%87%BA%E7%8E%B0-ERROR-1820-HY000-You-must-reset-your-password-using-ALTER-USER-statement-before-executing/"/>
+    <id>http://blog.funwan.cn/2019/05/17/MYSQL出现-ERROR-1820-HY000-You-must-reset-your-password-using-ALTER-USER-statement-before-executing/</id>
+    <published>2019-05-17T08:21:00.000Z</published>
+    <updated>2019-05-17T08:22:17.089Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Mysql安装完成后登录无论什么操作都错误"><a href="#Mysql安装完成后登录无论什么操作都错误" class="headerlink" title="Mysql安装完成后登录无论什么操作都错误"></a>Mysql安装完成后登录无论什么操作都错误</h3><hr><h4 id="刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误"><a href="#刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误" class="headerlink" title="刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误"></a>刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误</h4><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.<br></code></pre></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/20181128113649691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW9iaXNoZW5nMQ==,size_16,color_FFFFFF,t_70" alt="错误截图"></p><hr><h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p><strong>这是说明我们的初始密码时间过期了，重新改一下密码就行</strong></p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">alter user user() identified by &quot;你的新密码&quot;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Mysql安装完成后登录无论什么操作都错误&quot;&gt;&lt;a href=&quot;#Mysql安装完成后登录无论什么操作都错误&quot; class=&quot;headerlink&quot; title=&quot;Mysql安装完成后登录无论什么操作都错误&quot;&gt;&lt;/a&gt;Mysql安装完成后登录无论什么操作都错误&lt;/
+      
+    
+    </summary>
+    
+      <category term="技术类" scheme="http://blog.funwan.cn/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="Mysql" scheme="http://blog.funwan.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql: [ERROR] Unknown suffix &#39;?&#39; used for variable &#39;port&#39; (value &#39;3306?&#39;) 解决方法</title>
+    <link href="http://blog.funwan.cn/2019/05/17/mysql-ERROR-Unknown-suffix-used-for-variable-port-value-3306-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>http://blog.funwan.cn/2019/05/17/mysql-ERROR-Unknown-suffix-used-for-variable-port-value-3306-解决方法/</id>
+    <published>2019-05-17T08:19:00.000Z</published>
+    <updated>2019-05-17T08:22:37.111Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="某天发现个奇怪的mysql错误"><a href="#某天发现个奇怪的mysql错误" class="headerlink" title="某天发现个奇怪的mysql错误"></a>某天发现个奇怪的mysql错误</h3><hr><h4 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h4><ul><li>MYSQL连接时出现以下错误： </li></ul><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">mysql: [ERROR] Unknown suffix &apos;?&apos; used for variable &apos;port&apos; (value &apos;3306?&apos;)<br>mysql: [ERROR] mysql: Error while setting value &apos;3306?&apos; to &apos;port&apos;<br></code></pre></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/20181128114734979.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW9iaXNoZW5nMQ==,size_16,color_FFFFFF,t_70" alt="错误截图"></p><hr><h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><ul><li><strong>把my.cnf里面的[client]下的<code>port=3306</code> 删除掉，或者在前面加个#</strong></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;某天发现个奇怪的mysql错误&quot;&gt;&lt;a href=&quot;#某天发现个奇怪的mysql错误&quot; class=&quot;headerlink&quot; title=&quot;某天发现个奇怪的mysql错误&quot;&gt;&lt;/a&gt;某天发现个奇怪的mysql错误&lt;/h3&gt;&lt;hr&gt;
+&lt;h4 id=&quot;错误信息&quot;&gt;&lt;a
+      
+    
+    </summary>
+    
+      <category term="技术类" scheme="http://blog.funwan.cn/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="Mysql" scheme="http://blog.funwan.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>golang中MongoDB的between查询</title>
+    <link href="http://blog.funwan.cn/2019/05/17/golang%E4%B8%ADMongoDB%E7%9A%84between%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://blog.funwan.cn/2019/05/17/golang中MongoDB的between查询/</id>
+    <published>2019-05-17T08:16:00.000Z</published>
+    <updated>2019-05-17T08:23:00.789Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="最近在使用GO语言操作MongoDB的时候发现挺多操作很麻烦"><a href="#最近在使用GO语言操作MongoDB的时候发现挺多操作很麻烦" class="headerlink" title="最近在使用GO语言操作MongoDB的时候发现挺多操作很麻烦"></a><strong>最近在使用GO语言操作MongoDB的时候发现挺多操作很麻烦</strong></h4><h4 id="由于判断时间戳或者数值在两个数范围内这个查询很常见，然而mgo实现between查询的资料又很少，所以做一下记录"><a href="#由于判断时间戳或者数值在两个数范围内这个查询很常见，然而mgo实现between查询的资料又很少，所以做一下记录" class="headerlink" title="由于判断时间戳或者数值在两个数范围内这个查询很常见，然而mgo实现between查询的资料又很少，所以做一下记录"></a>由于判断时间戳或者数值在两个数范围内这个查询很常见，然而mgo实现between查询的资料又很少，所以做一下记录</h4><hr><ul><li><p>mgo的安装: <code>go get gopkg.in/mgo.v2</code></p></li><li><p>获取时间戳在上一小时内的记录</p></li></ul><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs undefined">//其他代码太多,只给出主要代码<br><br>func main()&#123;<br>var result []dataStruct<br>lastHourStart := LastHourStartTimestamp()<br>lastHourEnd := LastHourEndTimestamp()<br><br>//关键就是bson.M&#123;&quot;timestamp&quot;: bson.M&#123;&quot;$lte&quot;: lastHourEnd, &quot;$gte&quot;: lastHourStart&#125;&#125;<br><br>err := c.Find(bson.M&#123;&quot;timestamp&quot;: bson.M&#123;&quot;$lte&quot;: lastHourEnd, &quot;$gte&quot;: lastHourStart&#125;&#125;).All(&amp;result)<br><br>CheckErr(err)<br>fmt.Println(result[0], &quot;\r\n&quot;)<br>fmt.Println(result[1], &quot;\r\n&quot;)<br>&#125;<br>//这个函数获取的是当前的整点时间戳<br>func LastHourEndTimestamp() int64 &#123;<br>now := time.Now()<br>timestamp := now.Unix() - int64(now.Second()) - int64((60 * now.Minute()))<br>return timestamp<br>&#125;<br>//这个函数获取的是上一小时整点时间戳<br>func LastHourStartTimestamp() int64 &#123;<br>now := time.Now()<br>timestamp := now.Unix() - int64(now.Second()) - int64((60 * now.Minute())) - 3600<br>return timestamp<br>&#125;<br><br>func CheckErr(err error) &#123;<br>if err != nil &#123;<br>panic(err)<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;最近在使用GO语言操作MongoDB的时候发现挺多操作很麻烦&quot;&gt;&lt;a href=&quot;#最近在使用GO语言操作MongoDB的时候发现挺多操作很麻烦&quot; class=&quot;headerlink&quot; title=&quot;最近在使用GO语言操作MongoDB的时候发现挺多操作很麻烦&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="技术类" scheme="http://blog.funwan.cn/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="Mongodb" scheme="http://blog.funwan.cn/tags/Mongodb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于Mysql索引的笔记</title>
+    <link href="http://blog.funwan.cn/2019/05/17/%E5%85%B3%E4%BA%8EMysql%E7%B4%A2%E5%BC%95%E7%9A%84%E7%AC%94%E8%AE%B0/"/>
+    <id>http://blog.funwan.cn/2019/05/17/关于Mysql索引的笔记/</id>
+    <published>2019-05-17T08:13:00.000Z</published>
+    <updated>2019-05-17T08:14:26.325Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="索引的作用"><a href="#索引的作用" class="headerlink" title="索引的作用"></a>索引的作用</h1><ul><li>主要是根据字段设置了索引以后，可以提高查询速度，也可以防止重复记录插入。</li><li>关联多字段，与已存在记录对比相同不允许重复插入</li></ul><h2 id="如何添加索引"><a href="#如何添加索引" class="headerlink" title="如何添加索引"></a>如何添加索引</h2><ul><li><strong>普通索引</strong>: table_name为表名,index_name为索引名,column_name为字段名<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">ALTER TABLE  `table_name`  ADD   INDEX index_ name (`column_name`);<br></code></pre></td></tr></table></figure></li></ul><hr><ul><li><strong>唯一索引</strong>:table_name为表名,index_name为索引名,column_name1为字段名1,<strong>唯一索引的字段名可以选择多个，变成组合索引，新插入的记录与已存在的记录对比，必须是唯一索引里面的字段都相同，才是报重复插入的错误！</strong><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">ALTER TABLE  `table_name`  ADD  UNIQUE index_ name (`column_name1`,`column_name2`,...);<br></code></pre></td></tr></table></figure></li></ul><hr><ul><li><strong>删除索引</strong><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">ALTER TABLE  `table_name` DROP  Index  index_name<br></code></pre></td></tr></table></figure></li></ul><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;索引的作用&quot;&gt;&lt;a href=&quot;#索引的作用&quot; class=&quot;headerlink&quot; title=&quot;索引的作用&quot;&gt;&lt;/a&gt;索引的作用&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;主要是根据字段设置了索引以后，可以提高查询速度，也可以防止重复记录插入。&lt;/li&gt;
+&lt;li&gt;关联多字段，
+      
+    
+    </summary>
+    
+      <category term="技术类" scheme="http://blog.funwan.cn/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="Mysql" scheme="http://blog.funwan.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
     <title>我的hexo博客搭建之旅</title>
     <link href="http://blog.funwan.cn/2019/05/16/%E6%88%91%E7%9A%84hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E6%97%85/"/>
     <id>http://blog.funwan.cn/2019/05/16/我的hexo博客搭建之旅/</id>
     <published>2019-05-15T17:11:00.000Z</published>
-    <updated>2019-05-17T08:07:30.944Z</updated>
+    <updated>2019-05-17T08:15:30.385Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="记录一下本博客的诞生过程"><a href="#记录一下本博客的诞生过程" class="headerlink" title="记录一下本博客的诞生过程:"></a>记录一下本博客的诞生过程:</h3><ul><li><h4 id="这个博客使用的hexo博客框架，主题是ARIA"><a href="#这个博客使用的hexo博客框架，主题是ARIA" class="headerlink" title="这个博客使用的hexo博客框架，主题是ARIA"></a>这个博客使用的<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>博客框架，主题是<a href="https://github.com/AlynxZhou/hexo-theme-aria" target="_blank" rel="noopener">ARIA</a></h4></li><li><h4 id="该博客既运行在我的VPS上，也在我的github上有备份"><a href="#该博客既运行在我的VPS上，也在我的github上有备份" class="headerlink" title="该博客既运行在我的VPS上，也在我的github上有备份"></a>该博客既运行在我的VPS上，也在我的<a href="http://git.funwan.cn/" target="_blank" rel="noopener">github</a>上有备份</h4></li></ul><h3 id="下面正式开始"><a href="#下面正式开始" class="headerlink" title="下面正式开始"></a>下面正式开始</h3><ul><li><p>先安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs</a> , 根据你的操作系统下载比较新的版本就行。如果是Linux在用yum或者apt-get等工具下载的Nodejs，记得把npm也安装了。</p></li><li><p>然后安装hexo-cli，运行<br><code>npm install -g hexo-cli</code> 安装完成后用 <code>hexo -v</code> 查看一下版本信息</p><p><img src="http://prmmnuox9.bkt.clouddn.com/WechatIMG232.png" alt="&quot;hexo版本信息&quot;"></p></li><li><p>先初始化hexo项目: <code>hexo init hexo</code></p><p>进入刚创建的hexo项目: <code>cd hexo</code></p><p>安装hexo插件: <code>nmp install -y</code></p><p>生成hexo博客的静态文件: <code>hexo g</code></p><p><img src="http://prmmnuox9.bkt.clouddn.com/WechatIMG236.png" alt="hexo生成静态文件"></p><p>启动hexo的web服务: <code>hexo s</code></p><p><img src="http://prmmnuox9.bkt.clouddn.com/1558075917007.jpg" alt="启动hexo的web服务"></p><p>最后浏览器访问: <code>http://你的ip:4000</code>  就可以看到默认的hexo博客了</p></li><li><p>安装hexo-admin后台插件</p><p>执行: <code>npm install --save hexo-admin</code></p><p>生成hash密码:</p><p>1.执行: <code>node</code></p><p>2.再执行: <code>const bcrypt = require(&#39;bcrypt-nodejs&#39;)</code></p><p>3.最后执行: <code>bcrypt.hashSync(&#39;123456&#39;)</code><br><strong><em>(123456就是你要设置的密码)</em></strong></p></li></ul><p><img src="http://prmmnuox9.bkt.clouddn.com/1558077450607.jpg" alt="生成hash密码"></p><p>   配置后台账号信息: <code>vi _config.yml</code></p>  <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">admin:<br>  username: bison<br>  password_hash: 2a$10$kHIDugCww1jmZMn1cQw8S.FcU/UOKuIqBEwdlseI6suqMkNsrLntu<br>  secret: bison admin<br></code></pre></td></tr></table></figure><p>  <img src="http://prmmnuox9.bkt.clouddn.com/1558077668700.jpg" alt="配置后台用户信息"></p><p> 重新启动hexo的web服务: <code>hexo s</code></p><p> 浏览器访问:  <code>htt://你的ip:4000/admin</code> 验证</p><p>  <img src="http://prmmnuox9.bkt.clouddn.com/1558077774577.jpg" alt="hexo-admin验证"></p><ul><li><p>搭配nginx使用</p><p>Centos安装Nginx:  <code>yum install nginx -y</code></p><p>Ubuntu安装Nginx: <code>apt-get install nginx</code></p><p>然后修改nginx的配置文件，指定网站根目录为hexo生成的静态文件,再nginx代理hexo-admin后台</p><p><code>vi /etc/nginx/nginx.conf</code></p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs undefined">server &#123;<br>      listen       80;<br>      server_name  localhost;<br>      location / &#123;<br>          root   /bsBlog/hexo/public;#hexo生成静态文件的位置<br>          index  index.html index.htm;<br>      &#125;<br>      location /admin &#123;<br>          proxy_pass http://127.0.0.1:4000/admin;<br>      &#125;<br></code></pre></td></tr></table></figure></li></ul><p>  重启nginx: <code>systemctl restart nginx</code></p><p>  开机启动nginx: <code>systemctl enable nginx</code></p><p>  浏览器访问: <code>http://你的ip/admin</code> 验证</p><p>  <img src="http://prmmnuox9.bkt.clouddn.com/15580777745771.jpg" alt="hexo-admin验证"></p><h3 id="到此hexo博客的搭建就基本完成了，过几天再写hexo同步到github仓库和hexo更换主题的文章吧，写写大家。"><a href="#到此hexo博客的搭建就基本完成了，过几天再写hexo同步到github仓库和hexo更换主题的文章吧，写写大家。" class="headerlink" title="到此hexo博客的搭建就基本完成了，过几天再写hexo同步到github仓库和hexo更换主题的文章吧，写写大家。"></a>到此hexo博客的搭建就基本完成了，过几天再写hexo同步到github仓库和hexo更换主题的文章吧，写写大家。</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="记录一下本博客的诞生过程"><a href="#记录一下本博客的诞生过程" class="headerlink" title="记录一下本博客的诞生过程:"></a>记录一下本博客的诞生过程:</h3><ul><li><h4 id="这个博客使用的hexo博客框架，主题是ARIA"><a href="#这个博客使用的hexo博客框架，主题是ARIA" class="headerlink" title="这个博客使用的hexo博客框架，主题是ARIA"></a>这个博客使用的<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>博客框架，主题是<a href="https://github.com/AlynxZhou/hexo-theme-aria" target="_blank" rel="noopener">ARIA</a></h4></li><li><h4 id="该博客既运行在我的VPS上，也在我的github上有备份"><a href="#该博客既运行在我的VPS上，也在我的github上有备份" class="headerlink" title="该博客既运行在我的VPS上，也在我的github上有备份"></a>该博客既运行在我的VPS上，也在我的<a href="http://git.funwan.cn/" target="_blank" rel="noopener">github</a>上有备份</h4></li></ul><hr><h3 id="下面正式开始"><a href="#下面正式开始" class="headerlink" title="下面正式开始"></a>下面正式开始</h3><ul><li><p>先安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs</a> , 根据你的操作系统下载比较新的版本就行。如果是Linux在用yum或者apt-get等工具下载的Nodejs，记得把npm也安装了。</p></li><li><p>然后安装hexo-cli，运行<br><code>npm install -g hexo-cli</code> 安装完成后用 <code>hexo -v</code> 查看一下版本信息</p><p><img src="http://prmmnuox9.bkt.clouddn.com/WechatIMG232.png" alt="&quot;hexo版本信息&quot;"></p></li><li><p>先初始化hexo项目: <code>hexo init hexo</code></p><p>进入刚创建的hexo项目: <code>cd hexo</code></p><p>安装hexo插件: <code>nmp install -y</code></p><p>生成hexo博客的静态文件: <code>hexo g</code></p><p><img src="http://prmmnuox9.bkt.clouddn.com/WechatIMG236.png" alt="hexo生成静态文件"></p><p>启动hexo的web服务: <code>hexo s</code></p><p><img src="http://prmmnuox9.bkt.clouddn.com/1558075917007.jpg" alt="启动hexo的web服务"></p><p>最后浏览器访问: <code>http://你的ip:4000</code>  就可以看到默认的hexo博客了</p></li><li><p>安装hexo-admin后台插件</p><p>执行: <code>npm install --save hexo-admin</code></p><p>生成hash密码:</p><p>1.执行: <code>node</code></p><p>2.再执行: <code>const bcrypt = require(&#39;bcrypt-nodejs&#39;)</code></p><p>3.最后执行: <code>bcrypt.hashSync(&#39;123456&#39;)</code><br><strong><em>(123456就是你要设置的密码)</em></strong><br><img src="http://prmmnuox9.bkt.clouddn.com/1558077450607.jpg" alt="生成hash密码"></p><p>配置后台账号信息: <code>vi _config.yml</code></p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">admin:<br>  username: bison<br>  password_hash: 2a$10$kHIDugCww1jmZMn1cQw8S.FcU/UOKuIqBEwdlseI6suqMkNsrLntu<br>  secret: bison admin<br></code></pre></td></tr></table></figure></li></ul><p>  <img src="http://prmmnuox9.bkt.clouddn.com/1558077668700.jpg" alt="配置后台用户信息"></p><p>  重新启动hexo的web服务: <code>hexo s</code></p><p>  浏览器访问:  <code>htt://你的ip:4000/admin</code> 验证</p><p>  <img src="http://prmmnuox9.bkt.clouddn.com/1558077774577.jpg" alt="hexo-admin验证"></p><hr><ul><li><p>搭配nginx使用</p><p>Centos安装Nginx:  <code>yum install nginx -y</code></p><p>Ubuntu安装Nginx: <code>apt-get install nginx</code></p><p>然后修改nginx的配置文件，指定网站根目录为hexo生成的静态文件,再nginx代理hexo-admin后台</p><p><code>vi /etc/nginx/nginx.conf</code></p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs undefined">server &#123;<br>      listen       80;<br>      server_name  localhost;<br>      location / &#123;<br>          root   /bsBlog/hexo/public;#hexo生成静态文件的位置<br>          index  index.html index.htm;<br>      &#125;<br>      location /admin &#123;<br>          proxy_pass http://127.0.0.1:4000/admin;<br>      &#125;<br></code></pre></td></tr></table></figure><p>重启nginx: <code>systemctl restart nginx</code></p><p>开机启动nginx: <code>systemctl enable nginx</code></p><p>浏览器访问: <code>http://你的ip/admin</code> 验证</p><p><img src="http://prmmnuox9.bkt.clouddn.com/15580777745771.jpg" alt="hexo-admin验证"></p></li></ul><hr><h3 id="到此hexo博客的搭建就基本完成了，过几天再写hexo同步到github仓库和hexo更换主题的文章吧，写写大家。"><a href="#到此hexo博客的搭建就基本完成了，过几天再写hexo同步到github仓库和hexo更换主题的文章吧，写写大家。" class="headerlink" title="到此hexo博客的搭建就基本完成了，过几天再写hexo同步到github仓库和hexo更换主题的文章吧，写写大家。"></a>到此hexo博客的搭建就基本完成了，过几天再写hexo同步到github仓库和hexo更换主题的文章吧，写写大家。</h3>]]></content>
     
     <summary type="html">
     

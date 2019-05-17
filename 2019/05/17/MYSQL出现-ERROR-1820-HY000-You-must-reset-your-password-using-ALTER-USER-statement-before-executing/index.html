@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>归档 | Bison - 码海无涯，回头已秃。</title>
+    <title>MYSQL出现:ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing | Bison - 码海无涯，回头已秃。</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -152,7 +152,7 @@
         
         <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
         
-        <li role="menuitem"><a href="/archives/" class="current"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
         
         <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
         
@@ -171,90 +171,97 @@
         <div class="main-container">
           <div class="content">
             
-<div id="archive" class="archive page">
-  <h1 class="page-title">归档</h1>
-  <h2 class="page-counter">
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://blog.funwan.cn/2019/05/17/MYSQL出现-ERROR-1820-HY000-You-must-reset-your-password-using-ALTER-USER-statement-before-executing/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Bison Zhao">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Bison">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">MYSQL出现:ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:21:00+08:00">2019-05-17 16:21:00</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术类/" itemprop="url" rel="index"><span itemprop="name">技术类</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h3 id="Mysql安装完成后登录无论什么操作都错误"><a href="#Mysql安装完成后登录无论什么操作都错误" class="headerlink" title="Mysql安装完成后登录无论什么操作都错误"></a>Mysql安装完成后登录无论什么操作都错误</h3><hr>
+<h4 id="刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误"><a href="#刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误" class="headerlink" title="刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误"></a>刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误</h4><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.<br></code></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20181128113649691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW9iaXNoZW5nMQ==,size_16,color_FFFFFF,t_70" alt="错误截图"></p>
+<hr>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p><strong>这是说明我们的初始密码时间过期了，重新改一下密码就行</strong></p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">alter user user() identified by &quot;你的新密码&quot;;<br></code></pre></td></tr></table></figure>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Mysql/" rel="tag"><i class="fas fa-tags"></i>Mysql</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
     
-    你已经写了 5 篇文章！
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
     
-  </h2>
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
   
   
-  
-  
-  <h2 class="page-title">2019
-  
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/17/MYSQL出现-ERROR-1820-HY000-You-must-reset-your-password-using-ALTER-USER-statement-before-executing/" itemprop="url">MYSQL出现:ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing</a>
-      </h1>
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
       
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:21:00+08:00">05-17</time>
-      </span>
+      <a href="/2019/05/17/mysql-ERROR-Unknown-suffix-used-for-variable-port-value-3306-解决方法/" rel="next" title="mysql: [ERROR] Unknown suffix '?' used for variable 'port' (value '3306?') 解决方法"><i class="fas fa-angle-left"></i><span class="nav-title">mysql: [ERROR] Unknown suffix '?' used for variable 'port' (value '3306?') 解决方法</span></a>
       
-    </header>
-  </article>
-  
-  
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/17/mysql-ERROR-Unknown-suffix-used-for-variable-port-value-3306-解决方法/" itemprop="url">mysql: [ERROR] Unknown suffix '?' used for variable 'port' (value '3306?') 解决方法</a>
-      </h1>
+    </div>
+    <div class="page-nav-prev page-nav-item">
       
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:19:00+08:00">05-17</time>
-      </span>
-      
-    </header>
-  </article>
+    </div>
+  </nav>
   
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/17/golang中MongoDB的between查询/" itemprop="url">golang中MongoDB的between查询</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:16:00+08:00">05-17</time>
-      </span>
-      
-    </header>
-  </article>
-  
-  
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/17/关于Mysql索引的笔记/" itemprop="url">关于Mysql索引的笔记</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:13:00+08:00">05-17</time>
-      </span>
-      
-    </header>
-  </article>
-  
-  
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/16/我的hexo博客搭建之旅/" itemprop="url">我的hexo博客搭建之旅</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-16T01:11:00+08:00">05-16</time>
-      </span>
-      
-    </header>
-  </article>
-  
-  
-</h2></div>
+</div>
 
           </div>
           
@@ -313,6 +320,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Mysql安装完成后登录无论什么操作都错误"><span class="toc-text">Mysql安装完成后登录无论什么操作都错误</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误"><span class="toc-text">刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#解决方法"><span class="toc-text">解决方法</span></a></li></ol></li></ol></div>
+    </div>
+    
     
     
     <hr>
