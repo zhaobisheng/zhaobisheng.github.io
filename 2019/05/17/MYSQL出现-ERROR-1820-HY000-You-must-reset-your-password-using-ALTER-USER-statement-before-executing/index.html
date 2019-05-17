@@ -206,9 +206,10 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h4 id="Mysql安装完成后登录无论什么操作都错误"><a href="#Mysql安装完成后登录无论什么操作都错误" class="headerlink" title="Mysql安装完成后登录无论什么操作都错误"></a>Mysql安装完成后登录无论什么操作都错误</h4><hr>
+      <hr>
+<h4 id="Mysql安装完成后登录无论什么操作都错误"><a href="#Mysql安装完成后登录无论什么操作都错误" class="headerlink" title="Mysql安装完成后登录无论什么操作都错误"></a>Mysql安装完成后登录无论什么操作都错误</h4><hr>
 <h4 id="刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误"><a href="#刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误" class="headerlink" title="刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误"></a>刚刚安装完成MYSQL，登录进去以后，什么操作都提示错误</h4><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20181128113649691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW9iaXNoZW5nMQ==,size_16,color_FFFFFF,t_70" alt="错误截图"></p>
+<p><img src="https://img-blog.csdnimg.cn/20181128113649691.png" alt="错误截图"></p>
 <hr>
 <h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p><strong>这是说明我们的初始密码时间过期了，重新改一下密码就行</strong></p>
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">alter user user() identified by &quot;你的新密码&quot;;<br></code></pre></td></tr></table></figure>
