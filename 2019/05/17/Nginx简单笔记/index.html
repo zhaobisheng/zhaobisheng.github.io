@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>标签: hexo | Bison - 码海无涯，回头已秃。</title>
+    <title>Nginx简单笔记 | Bison - 码海无涯，回头已秃。</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -171,21 +171,135 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tag" class="tag page">
-  <h1 class="page-title">hexo</h1>
+<div id="post" class="page">
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/16/我的hexo博客搭建之旅/" itemprop="url">我的hexo博客搭建之旅</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-16T01:11:00+08:00">05-16</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://blog.funwan.cn/2019/05/17/Nginx简单笔记/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Bison Zhao">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/avatar.png">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Bison">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Nginx简单笔记</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:30:00+08:00">2019-05-17 16:30:00</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术类/" itemprop="url" rel="index"><span itemprop="name">技术类</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>nginx + php-fpm配置方式:</p>
+<p>server {</p>
+<pre><code>    listen       80;
+    server_name  xxx.xxx.com;
+    root /www/wwwroot;
+    index index.php index.html;
+    # Load configuration files for the default server block.
+    include /etc/nginx/default.d/*.conf;
+    location / {
+    }
+    location ~ \.php$ {
+       fastcgi_pass   127.0.0.1:9000;
+       fastcgi_index  index.php;
+       fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+       include        fastcgi_params;
+   }
+    error_page 404 /404.html;
+        location = /40x.html {
+    }
+    error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+    }
+
+}
+</code></pre><p>设置反向代理:</p>
+<p>server {<br>listen       80;<br>server_name  xxx.xxx.com;<br>location / {<br>proxy_pass <a href="http://localhost:802" target="_blank" rel="noopener">http://localhost:802</a>;<br>proxy_set_header   Host    $host;<br>proxy_set_header   X-Real-IP   $remote_addr;<br>proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;<br>    } </p>
+<p>}</p>
+<p>开启简单的http代理:</p>
+<p>server {<br>    resolver 8.8.8.8;<br>    resolver_timeout 5s;</p>
+<pre><code>listen 0.0.0.0:8088;
+
+location / {
+    proxy_pass $scheme://$host$request_uri;
+   proxy_set_header Host $http_host;
+
+    proxy_buffers 256 4k;
+    proxy_max_temp_file_size 0;
+    proxy_connect_timeout 30; 
+    proxy_cache_valid 200 302 10m;
+    proxy_cache_valid 301 1h;
+    proxy_cache_valid any 1m;
+}
+</code></pre><p>}</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/PHP/" rel="tag"><i class="fas fa-tags"></i>PHP</a>
+        
+        <a class="post-tag button" href="/tags/Nginx/" rel="tag"><i class="fas fa-tags"></i>Nginx</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/05/17/简单写写华软mysise教务系统模拟登陆-获取课程表数据-打造自己的超级课程表/" rel="next" title="简单写写华软mysise教务系统模拟登陆+获取课程表数据(打造自己的超级课程表)"><i class="fas fa-angle-left"></i><span class="nav-title">简单写写华软mysise教务系统模拟登陆+获取课程表数据(打造自己的超级课程表)</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/05/17/geth控制台发布智能合约以及调用操作/" rel="prev" title="geth控制台发布智能合约以及调用操作"><span class="nav-title">geth控制台发布智能合约以及调用操作</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
   
   
 </div>
@@ -247,6 +361,11 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
     
     
     <hr>

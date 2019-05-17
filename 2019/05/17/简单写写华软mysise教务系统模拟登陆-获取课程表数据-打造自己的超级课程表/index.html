@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Bison" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>简单写写华软mysise教务系统模拟登陆+获取课程表数据(打造自己的超级课程表) | Bison - 码海无涯，回头已秃。</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Bison</a></h1>
+        <h2 class="subtitle">码海无涯，回头已秃。</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://blog.funwan.cn/2019/05/17/简单写写华软mysise教务系统模拟登陆-获取课程表数据-打造自己的超级课程表/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Bison Zhao">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Bison">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">简单写写华软mysise教务系统模拟登陆+获取课程表数据(打造自己的超级课程表)</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:29:00+08:00">2019-05-17 16:29:00</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术类/" itemprop="url" rel="index"><span itemprop="name">技术类</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>##主要介绍一下华软mysise教务系统模拟登陆+简单获取数据</p>
+<p>#####最近比较多朋友问到这个，很多事情很难口头说的清楚，还是那句话好:「Talk is cheap,Show me the code」,如果你看完这篇文章，还不能理解mysise的模拟登录过程，那恕小弟表达能力不太够吧！！！</p>
+<h3 id="模拟登陆的过程"><a href="#模拟登陆的过程" class="headerlink" title="模拟登陆的过程:"></a>模拟登陆的过程:</h3><ul>
+<li>首先分析一下登录页面<a href="http://class.sise.com.cn:7001/sise/login.jsp的表单" target="_blank" rel="noopener">http://class.sise.com.cn:7001/sise/login.jsp的表单</a><br>  <img src="http://img.blog.csdn.net/20171225003950385?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+</ul>
+<pre><code><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;form name=&quot;form1&quot; method=&quot;post&quot; action=&quot;login_check_login.jsp&quot;&gt;<br>		&lt;input type=&quot;hidden&quot; name=&quot;888af9dd5a2c154b78e9bd65747b2a7b&quot;  value=&quot;8c4251f32f3bd68c2aa22f538b0b533e&quot;&gt;<br>		&lt;input id=&quot;random&quot;   type=&quot;hidden&quot;  value=&quot;1514133455194&quot;  name=&quot;random&quot; /&gt;<br>		&lt;input id=&quot;token&quot;  type=&quot;hidden&quot; name=&quot;token&quot; /&gt;<br>		 &lt;div&gt; &lt;a href=&quot;/sise/coursetemp/courseInfo.html&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;2017-2018学年2学期 排课信息查看&lt;/b&gt;&lt;/a&gt;&lt;/div&gt;&lt;!--<br>		&lt;div&gt;&lt;font size=&quot;2&quot; color=&quot;#006666&quot;&gt;学号：&lt;/font&gt;&lt;input name=&quot;username&quot; id=&quot;username&quot; type=&quot;text&quot; size=&quot;15&quot; class=&quot;notnull&quot; onkeypress=&quot;goNext()&quot; &gt;&lt;/div&gt;<br>		&lt;div&gt;&lt;font size=&quot;2&quot; color=&quot;#006666&quot;&gt;密码：&lt;/font&gt;&lt;input name=&quot;password&quot; id=&quot;password&quot; type=&quot;password&quot; size=&quot;15&quot; class=&quot;notnull&quot; onkeypress=&quot;Check_Nums()&quot; &gt;&lt;/div&gt;<br>		&lt;div&gt;&lt;input type=&quot;button&quot; id=&quot;Submit&quot; name=&quot;Submit&quot; value=&quot; 登  录 &quot; class=&quot;button&quot; onclick=&quot;loginwithpwd();&quot; onmouseover=&quot;this.style.color=&apos;red&apos;&quot; onmouseout=&quot;this.style.color=&apos;#1e7977&apos;&quot;&gt;&lt;input type=&quot;button&quot; id=&quot;Submit2&quot; name=&quot;Submit2&quot;  value=&quot; 重  写 &quot; class=&quot;button&quot; onclick=&quot;resetWin();&quot; onmouseover=&quot;this.style.color=&apos;red&apos;&quot; onmouseout=&quot;this.style.color=&apos;#1e7977&apos;&quot;&gt;&lt;/div&gt;<br>	&lt;/form&gt;<br></code></pre></td></tr></table></figure>
+</code></pre><ul>
+<li>由于写这篇文章时还是选课期间，所以多了一个<code>排课信息查看</code>，然而现在的mysise登录页面表单里也多了一个<code>token</code>和<code>random</code> 要post过去，虽然搞了一会解密了<code>token</code> 是<code>random</code>+<code>JSESSIONID</code> 值md5后混合的，但我大一时模拟登录用的旧数据格式还能用，就不详细说了,姑且命名它为新的登录方式，下面代码里面有生成<code>token</code> 的过程。</li>
+<li>好了，现在来分析登陆过程，我们到底传了怎样的数据过去mysise,先抓包一波看看：<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs undefined">POST /sise/login_check_login.jsp HTTP/1.1<br>Host: class.sise.com.cn:7001<br>Content-Length: 182<br>Cache-Control: max-age=0<br>Origin: http://class.sise.com.cn:7001<br>Upgrade-Insecure-Requests: 1<br>Content-Type: application/x-www-form-urlencoded<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8<br>Referer: http://class.sise.com.cn:7001/sise/login.jsp<br>Accept-Language: zh-CN,zh;q=0.9<br>Cookie: JSESSIONID=y28vh1XPx0mplcym62G5nGCBFNSfwrJf1yvS1PdhG1dPjQ7GJQ1r!-2087883253<br>Connection: close<br><br>888af9dd5a2c154b78e9bd65747b2a7b=8c4251f32f3bd68c2aa22f538b0b533e&amp;random=1514133455194&amp;token=5155F144B17333B4852571992468DC49247C2ED10A6EC&amp;username=学号&amp;password=密码<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20171225005251919?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<ul>
+<li><p>我们来简单分析一波， <code>888af9dd5a2c154b78e9bd65747b2a7b=8c4251f32f3bd68c2aa22f538b0b533e</code>这串东西是不是好像在那看到过？？？没错，就是在首页表单里面的隐藏项里，<code>888af9dd5a2c154b78e9bd65747b2a7b</code> 和 <code>8c4251f32f3bd68c2aa22f538b0b533e</code>长度都是32位，眉头皱了一下，发现<code>888af9dd5a2c154b78e9bd65747b2a7b</code>是我本地ip的md5值，而<code>8c4251f32f3bd68c2aa22f538b0b533e</code>就是我本机ip+sise的md5值。<code>random=1514133455194&amp;token=5155F144B17333B4852571992468DC49247C2ED10A6EC</code> 这串东东我大一刚来的时候是没有的，现在还能登录，那就可以不要了。<code>username=学号&amp;password=密码</code>这个不多说。<br><code>POST /sise/login_check_login.jsp</code> 说明是post方式把数据传到<code>/sise/login_check_login.jsp</code>这个页面。</p>
+</li>
+<li><p>好了，知道原理了，下面来代码模拟登陆，这里选用PHP(Java什么的同理的，没有语言黑！！！)</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;?php<br>//mysiselogin.php<br>class Mysise_Login &#123;<br>    private $username;<br>    private $password;<br>    private $myIp;<br>    private $normalMode; //模式，1是构造旧的登陆数据包,2是构造新的登陆数据包<br>    private $url = &quot;http://class.sise.com.cn:7001/sise/&quot;;<br>    private $cookie = &apos;&apos;;<br>    private $random = &apos;&apos;;<br>    public function __construct($user, $passwd, $ip, $mode = 1) &#123;<br>        $this-&gt;username = $user;<br>        $this-&gt;password = $passwd;<br>        $this-&gt;myIp = $ip;<br>        $this-&gt;normalMode = $mode;<br>    &#125; <br><br>    public function get_post_data() &#123;<br>        $ipmd5 = md5($this-&gt;myIp);<br>        $ipsisemd5 = md5(md5($this-&gt;myIp) . &quot;sise&quot;);<br>        $datas = $ipmd5 . &quot;=&quot; . $ipsisemd5;<br>        if ($this-&gt;normalMode == 1) &#123;<br>            $datas .= &quot;&amp;username=&quot; . $this-&gt;username . &quot;&amp;password=&quot; . $this-&gt;password;<br>        &#125; else if ($this-&gt;normalMode == 2) &#123;<br>            $token=$this-&gt;getToken();<br>            $datas .= &quot;&amp;random=&quot; . $this-&gt;random . &quot;&amp;token=&quot; . $token . &quot;&amp;username=&quot; . $this-&gt;username . &quot;&amp;password=&quot; . $this-&gt;password;<br>        &#125; <br>        return $datas;<br>    &#125; <br><br>    private function getToken() &#123;<br>        $content = $this-&gt;getResponse();<br>        $preg_name = &quot;/JSESSIONID=(.*?)!/&quot;;<br>        preg_match_all($preg_name, $content, $cookie_info);<br>        $this-&gt;cookie = $cookie_info[1][0];<br>        <br>        $preg_name = &quot;/&lt;input id=\&quot;random\&quot;   type=\&quot;hidden\&quot;  value=\&quot;(.*?)\&quot;  name=\&quot;random\&quot; \/&gt;/&quot;;<br>        preg_match_all($preg_name, $content, $random_info);<br>        $this-&gt;random = $random_info[1][0];<br><br>        $value = strtoupper(md5($this-&gt;url . $this-&gt;cookie . $this-&gt;random));<br>        $len = strlen($value);<br>        $randomlen = strlen($this-&gt;random);<br>        $token = &apos;&apos;;<br>        for($index = 0;$index &lt; $len;$index++) &#123;<br>            $token .= $value[$index];<br>            if ($index &lt; $randomlen) $token .= $this-&gt;random[$index];<br>        &#125; <br>        return $token;<br>    &#125; <br><br>    private function getResponse() &#123;<br>        $ch = curl_init($this-&gt;url);<br>        curl_setopt($ch, CURLOPT_HEADER, true); //返回头信息<br>        curl_setopt($ch, CURLOPT_NOBODY, false); //<br>        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); //返回数据<br>        $content = curl_exec($ch); //执行并存储结果<br>        curl_close($ch);<br>        return $content;<br>    &#125; <br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>当调用get_post_data函数时，根据实例化Mysise_Login 类时，传入的mode变量生成并返回登陆数据格式。</p>
+</li>
+<li>好了，根据生成的数据包，我们来模拟登录一下，先放上模拟登录的函数代码，再放上调用代码。</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs undefined">//utils.php<br>&lt;?php<br>class Utils &#123;<br>    public static $loginUrl = &quot;http://class.sise.com.cn:7001/sise/login_check_login.jsp&quot;; //登录url<br>    public static $schedularUrl = &quot;http://class.sise.com.cn:7001/sise/module/student_schedular/student_schedular.jsp&quot;; //课程表url<br>    public static function login_post($url, $cookie, $post) &#123;<br>        $curl = curl_init(); //初始化curl模块 <br>        curl_setopt($curl, CURLOPT_URL, $url); //登录提交的地址 <br>        curl_setopt($curl, CURLOPT_HEADER, false); //是否显示头信息 <br>        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); //是否自动显示返回的信息 <br>        curl_setopt($curl, CURLOPT_COOKIEJAR, $cookie); //<br>        curl_setopt($curl, CURLOPT_POST, true); //post方式提交 <br>        curl_setopt($curl, CURLOPT_POSTFIELDS, $post); //要提交的信息 <br>        $rs = curl_exec($curl); //执行cURL <br>        curl_close($curl); //关闭cURL资源，并且释放系统资源 <br>        return $rs;<br>    &#125; <br><br>    public static function get_content($url, $cookie) &#123;<br>        $ch = curl_init();<br>        curl_setopt($ch, CURLOPT_URL, $url); //定义地址<br>        curl_setopt($ch, CURLOPT_HEADER, false); //显示头信息<br>        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); //跟随转跳<br>        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //以数据流返回，是<br>        curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie); //读取cookie  <br>        // curl_setopt($ch, CURLOPT_COOKIE, $cookie);//设置cookie<br>        $rs = curl_exec($ch); //执行cURL抓取页面内容<br>        curl_close($ch);<br>        return $rs;<br>    &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><p>下面是整个模拟登录过程的代码</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs undefined">//index.php<br>&lt;?php<br>require_once(&apos;mysiselogin.php&apos;);<br>require_once(&apos;utils.php&apos;);<br><br>$cookie = dirname(__FILE__).&apos;/cookie.txt&apos;;<br><br>$login = new Mysise_Login(学号,密码,你的电脑ip);<br><br>//$login = new Mysise_Login(&apos;学号,密码,你的电脑ip,2);//新的登录方式<br><br>$datas= $login-&gt;get_post_data();<br><br>Utils::login_post(Utils::$loginUrl,$cookie,$datas);<br><br> header(&quot;Content-type: text/html; charset=gb2312&quot;); <br>//因为Mysise的网页编码是GBK的，所以直接显示要声明一下，不然浏览器输出会乱码<br> echo  Utils::get_content(Utils::$schedularUrl,$cookie);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>如果操作正确的话，这时候访问index.php，已经可以看到课程表的数据了<br><img src="http://img.blog.csdn.net/20171225020049132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+</li>
+</ul>
+<ul>
+<li>是不是这样的课表跟我们平时看mysise差不多，一点都没有自己的风格？那么下面随意写一下正则获取各个数据的代码，然后我们就可以发邮件提示你啊，微信机器人提示啊什么的(自行想象吧)……</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20171225031757144?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<ul>
+<li>就这样，课程表数据就获取成功了(正则写的快死了，早知道不用正则了…….)</li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><code class="hljs undefined">&lt;?php<br><br>function get_schedular($content) &#123;<br>    $content = iconv(&apos;GBK&apos;, &apos;UTF-8&apos;, $content);<br>    $preg_name = &quot;/&lt;td width=\&quot;70%\&quot; nowrap&gt;\&lt;span class=\&quot;style15\&quot;&gt;&amp;nbsp;\&lt;span class=\&quot;style16\&quot;&gt;(.*?) &amp;nbsp;姓名:(.*?) &amp;nbsp;年级:(.*?) &amp;nbsp;专业:(.*?)&lt;\/span&gt; &lt;\/span&gt;&lt;\/td&gt;/&quot;;<br>    preg_match_all($preg_name, $content, $name_info);<br>    $stu = array();<br>    $stu[&apos;stuNumber&apos;] = $name_info[1][0];<br>    $stu[&apos;stuName&apos;] = $name_info[2][0];<br>    $stu[&apos;stugrade&apos;] = $name_info[3][0];<br>    $stu[&apos;stuMajor&apos;] = $name_info[4][0];<br><br>    echo &quot;&lt;br/&gt;学生信息:&quot;;<br>    print_r($stu);<br><br>    echo &quot;&lt;br/&gt;教学周:&quot;;<br><br>    preg_match_all(&quot;/(教学周: 第(.*?)周)/&quot;, $content, $teach_time);<br><br>    $stu_now_week = $teach_time[2][0];<br><br>    echo $stu_now_week;<br><br>    echo &quot;&lt;br/&gt;课程时间安排:&lt;br/&gt;&quot;;<br><br>    $preg_time = &quot;/&lt;td width=&apos;10%&apos; align=&apos;center&apos; valign=&apos;top&apos; class=&apos;font12&apos;&gt;(.*?)节&lt;br&gt;(.*?)&lt;\/td&gt;&lt;td width=&apos;10%&apos; align=&apos;left&apos; valign=&apos;top&apos; class=&apos;font12&apos;&gt;/&quot;;<br>    preg_match_all($preg_time, $content, $schooltime);<br><br>    $class_time = array();<br><br>    $class_time[&apos;time_num&apos;] = count($schooltime[2]); //获取有多少个时间段，注释的是之前以为12:30-13:50是休息时间需要跳过，但现在好多在线课都在12:30-13:50，所以正常获取了<br>    for($num = 0;$num &lt; $class_time[&apos;time_num&apos;];$num++) &#123;<br>        /**<br>         * if ($num == 2) &#123;<br>         * continue;<br>         * &#125;<br>         */<br>        $class_time[] = $schooltime[2][$num];<br>        echo $schooltime[2][$num] ;<br>        /**<br>         * if ($num &gt; 2) &#123;<br>         * $num1 = $num;<br>         * &#125; else &#123;<br>         * $num1 = $num + 1;<br>         * &#125;<br>         */<br>        $num1 = $num + 1;<br>        echo &quot;   第:&quot; . $num1 . &quot;节&lt;br/&gt;&quot;;<br>    &#125; <br><br>    echo &quot;&lt;br/&gt;&lt;pre&gt;&quot;;<br><br>    $preg = &quot;/&lt;td width=&apos;10%&apos; align=&apos;left&apos; valign=&apos;top&apos; class=&apos;font12&apos;&gt;(.*?)&lt;\/td&gt;/si&quot;;<br>    preg_match_all($preg, $content, $arr);<br><br>    $subject = array();<br>    static $vline = 0;<br>    static $hline = 1;<br>    $arr_size = count($arr[1]);<br>    for($subject_count = 0;$subject_count != $arr_size;$subject_count++) &#123;<br>        if ($hline &gt; 7) &#123;<br>            $hline = 1;<br>            $vline += 1;<br>        &#125; <br><br>        $subject[$hline][$vline] = $arr[1][$subject_count];<br>        if ($arr[1][$subject_count] != &quot;&amp;nbsp;&quot;) &#123;<br>            $class_content = $subject[$hline][$vline];<br><br>            $preg_hz = &quot;/[\x&#123;4e00&#125;-\x&#123;9fa5&#125;a-zA-Z 0-9]&#123;2,&#125;\(/u&quot;;<br>            preg_match_all($preg_hz, $class_content, $class_name_info);<br>            $class_name = substr($class_name_info[0][0], 0, strlen($class_name_info[0][0])-1); //课程名称<br>            $preg_name = &quot;/\((.*?)\)/&quot;;<br>            preg_match_all($preg_name, $class_content, $class_details);<br>            $preg_hz = &quot;/[\x&#123;4e00&#125;-\x&#123;9fa5&#125;a-zA-Z0-9]&#123;2,&#125;/u&quot;;<br>            preg_match_all($preg_hz, $class_details[1][0], $hz);<br><br>            echo &quot;&lt;br/&gt;&quot;;<br>            $class_learn_class = $hz[0][0]; //教学班<br>            $class_teacher = $hz[0][1]; //任课老师<br>            echo &quot;教学班:&quot; . $class_learn_class . &quot;&lt;br/&gt;&quot;; <br>            // echo $class_name . &quot;&amp;nbsp;&quot; . $class_teacher . &quot;&lt;br/&gt;&quot;;<br>            echo &quot;课程名称:&quot; . $class_name . &quot;&lt;br/&gt;&quot;;<br>            echo &quot;任课老师:&quot; . $class_teacher . &quot;&lt;br/&gt;&quot;;<br><br>            $preg = &quot;/(\ \d+)&#123;1,&#125;/&quot;;<br>            preg_match_all($preg, $class_details[1][0], $src_arr);<br><br>            $preg_name = &quot;/(\d+)&#123;1,&#125;/&quot;;<br>            preg_match_all($preg_name, $src_arr[0][0], $arr1);<br><br>           <br><br>            $WeekNum = count($arr1[0]) - 1;<br>            $class_weeks = null;<br>            for($num = 0;$num &lt;= $WeekNum;$num++) &#123;<br>                $class_weeks .= $arr1[0][$num] . &quot;,&quot;;<br>            &#125; <br>            $preg_name = &quot;/\[(.*?)\]/&quot;;<br>            preg_match_all($preg_name, $class_details[1][0], $class_room_info);<br>            $class_room = $class_room_info[1][0];<br>            $which_class = $vline + 1;<br>            echo &quot;&lt;br/&gt;星期&quot; . $hline . &quot; 第&quot; . $which_class . &quot;节&lt;br/&gt;&quot;;           <br>            echo &quot;&lt;br/&gt;课室:&quot; . $class_room . &quot;&lt;br/&gt;&quot;;<br>            $all_WeekNum = $WeekNum + 1;<br>            echo &quot;&lt;br/&gt;一共&quot; . $all_WeekNum . &quot;周&lt;br/&gt;&quot;;<br>            print_r($arr1[0]);<br><br>            echo &quot;&lt;br/&gt;&quot;;<br>        &#125; <br>        $hline += 1;<br>    &#125; <br>&#125; <br><br>?&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="说点什么"><a href="#说点什么" class="headerlink" title="说点什么:"></a><strong>说点什么</strong>:</h3><ul>
+<li>如果结合公众号什么的，还可以弄出更多便利的东西，我就懒的搞了，想获取考试时间表啊，考勤信息啊什么鬼的，自己根据<code>http://class.sise.com.cn:7001/sise/module/student_schedular/student_schedular.jsp</code> 页面获取链接，再提取数据吧。(逃</li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/PHP/" rel="tag"><i class="fas fa-tags"></i>PHP</a>
+        
+        <a class="post-tag button" href="/tags/爬虫/" rel="tag"><i class="fas fa-tags"></i>爬虫</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/05/17/windows源码编译PHP7-1/" rel="next" title="windows源码编译PHP7.1"><i class="fas fa-angle-left"></i><span class="nav-title">windows源码编译PHP7.1</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/05/17/Nginx简单笔记/" rel="prev" title="Nginx简单笔记"><span class="nav-title">Nginx简单笔记</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.png" alt="Bison Zhao">
+  
+  <h1 class="author-name">Bison Zhao</h1>
+  <h2 class="author-description"></h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">13</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">1</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">9</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#模拟登陆的过程"><span class="toc-text">模拟登陆的过程:</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#说点什么"><span class="toc-text">说点什么:</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:zhaokjiyjyy@qq.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/zhaobisheng" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/1944473243/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/zhaobisheng" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.natech.top/" target="_blank">无聊人士的低语</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Bison Zhao</span><span class="year"><i class="far fa-copyright"></i>2019 - 2019</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://funwan.cn/" target="_blank">Bison Host</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://github.com/zhaobisheng" target="_blank">某不知名程序员</a> 强力驱动 | 博主 <a href="https://funwan.cn/" target="_blank">Bison</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

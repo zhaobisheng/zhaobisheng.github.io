@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>标签: hexo | Bison - 码海无涯，回头已秃。</title>
+    <title>轻松打造自己的Cheat Engine | Bison - 码海无涯，回头已秃。</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -171,21 +171,123 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tag" class="tag page">
-  <h1 class="page-title">hexo</h1>
+<div id="post" class="page">
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/16/我的hexo博客搭建之旅/" itemprop="url">我的hexo博客搭建之旅</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-16T01:11:00+08:00">05-16</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://blog.funwan.cn/2019/05/17/轻松打造自己的Cheat-Engine/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Bison Zhao">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/avatar.png">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Bison">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">轻松打造自己的Cheat Engine</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:35:00+08:00">2019-05-17 16:35:00</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术类/" itemprop="url" rel="index"><span itemprop="name">技术类</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h3><p>Cheat Engine不用我多介绍了吧，不知道的百度吧……….</p>
+<h3 id="2-起因"><a href="#2-起因" class="headerlink" title="2.起因"></a>2.起因</h3><p>因为最近到了网瘾少年之沉迷游戏的阶段，玩某些网游时需要使用网瘾少年之游戏难度降低(W)工(G)具,所以需要用CE对游戏内存进行搜索，找一些基址做网瘾少年应该做的事情，然而刚运行官方的CE没多久，我的帐号已经违反某游玩家协议被封号了，我嘞个去，不能忍，就有了这篇文章，好了不吹了…………</p>
+<h3 id="3-正文"><a href="#3-正文" class="headerlink" title="3.正文"></a>3.正文</h3><p>这篇文章将会带大家轻松修改一款属于自己的CE修改器，很简单，不懂编程都能轻松编译，所有需要用到的资源我都会放在文章最后。</p>
+<p>首先，下载并解压CE6.4的源代码，再下载 lazarus v1.4.4并安装，安装，安装，重要事情说三遍，记得安装，注意版本，我试过1.6的编译会出错，虽然改改代码也能通过，但就违背了我们轻松的原则了。</p>
+<p>其实这里才是正文…..哈哈哈</p>
+<p>进入到CE源代码解压目录\CheatEngine64src\Cheat Engine里面</p>
+<p>找到cheatengine.lpi</p>
+<p><img src="https://img-blog.csdn.net/20180205142032995?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>然后就会看到许多混乱的界面</p>
+<p><img src="https://img-blog.csdn.net/20180205142231521?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>差不多就这样吧，接下来我们来改一下标题和图标，点lazarus左上角的search-&gt;Find in Files，然后在弹出来的搜索框里输入MainUnit2 ,记得选上where里面的search all files in project，然后开始Find。</p>
+<p><img src="https://img-blog.csdn.net/20180205142504849?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>找到下图这样的结果，双击</p>
+<p><img src="https://img-blog.csdn.net/20180205142729226?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>然后会弹出源码界面</p>
+<p><img src="https://img-blog.csdn.net/20180205142802276?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>这里的Own Cheat Engine 6.6.6就是我们的CE程序名</p>
+<p>然后还有修改一下版本信息，这里可以按快捷键Shift+Ctrl+F11</p>
+<p><img src="https://img-blog.csdn.net/20180205143012573?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>然后在弹出的界面中修改CE的标题和加载我们自己的图标，最后点Version info</p>
+<p><img src="https://img-blog.csdn.net/20180205143113386?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>点了Version info以后</p>
+<p><img src="https://img-blog.csdn.net/20180205150516778?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>都改完以后，按Shift+F9或者</p>
+<p><img src="https://img-blog.csdn.net/20180205150607615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>点这build</p>
+<p>然后等待编译完成，就会看到CheatEngine64src\Cheat Engine\bin里面有一个我们图标的cheatengine-i386.exe</p>
+<p><img src="https://img-blog.csdn.net/20180205150711163?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p><img src="https://img-blog.csdn.net/20180205150823238?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>好了，运行看看效果</p>
+<p><img src="https://img-blog.csdn.net/20180205150851967?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p>大功告成，最后给我们编译出来的CE加个VMP壳，大小就会变成4m大小，然后其他游戏一般都检测不出来，至于加壳工具，自行百度吧，还有要改其他功能的话，就要自己去研究一下了，这里说不了那么多。</p>
+<p><strong>下次再写一篇修改CE语言的文章，不用直接在源码里面翻译。</strong></p>
+<p>CE6.4源码: <a href="https://download.csdn.net/download/zhaobisheng1/10240414" target="_blank" rel="noopener">https://download.csdn.net/download/zhaobisheng1/10240414</a></p>
+<p>lazarus v1.4.4:自行百度</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/CE/" rel="tag"><i class="fas fa-tags"></i>CE</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/05/17/geth控制台发布智能合约以及调用操作/" rel="next" title="geth控制台发布智能合约以及调用操作"><i class="fas fa-angle-left"></i><span class="nav-title">geth控制台发布智能合约以及调用操作</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
   
   
 </div>
@@ -247,6 +349,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-介绍"><span class="toc-text">1.介绍</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-起因"><span class="toc-text">2.起因</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-正文"><span class="toc-text">3.正文</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>

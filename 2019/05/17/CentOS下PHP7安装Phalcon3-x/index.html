@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>标签: hexo | Bison - 码海无涯，回头已秃。</title>
+    <title>CentOS下PHP7安装Phalcon3.x | Bison - 码海无涯，回头已秃。</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -171,21 +171,103 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tag" class="tag page">
-  <h1 class="page-title">hexo</h1>
+<div id="post" class="page">
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/16/我的hexo博客搭建之旅/" itemprop="url">我的hexo博客搭建之旅</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-16T01:11:00+08:00">05-16</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://blog.funwan.cn/2019/05/17/CentOS下PHP7安装Phalcon3-x/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Bison Zhao">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/avatar.png">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Bison">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">CentOS下PHP7安装Phalcon3.x</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:28:00+08:00">2019-05-17 16:28:00</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术类/" itemprop="url" rel="index"><span itemprop="name">技术类</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>php7的安装不再复述，自行百度，这里只是写个笔记，记录PHP7安装Phalcon的过程。</p>
+<p><strong>PHP7.x安装Phalcon没有像之前PHP5.6那样，直接源码编译就行了 </strong><br><strong>现在要先安装一个Zephir </strong><br>安装链接：<a href="https://docs.zephir-lang.com/en/latest/install.html#installing-zephir" target="_blank" rel="noopener">https://docs.zephir-lang.com/en/latest/install.html#installing-zephir</a></p>
+<p>然后就是说一下安装过程</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">git clone http://github.com/phalcon/cphalcon<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">cd ./cphalcon/build<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">./install  --php-config /usr/local/php7/bin/php-config  --phpize /usr/local/php7/bin/phpize<br></code></pre></td></tr></table></figure>
+<p>耐心等待编译完成，出现跟下图差不多的就是已经编译成功了，出错就要自己根据提示弄了….</p>
+<p><img src="http://img.blog.csdn.net/20171122151751071?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="编译完成"></p>
+<p>最后在 PHP.ini 加入</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">extension=phalcon.so<br></code></pre></td></tr></table></figure>
+<p>OK，搞定收工！</p>
+<p>注：<br>如果编译时出 <code>configure: WARNING: You will need re2c 0.13.4 or later if you want to regenerate PHP parsers.</code> </p>
+<p>可以执行 yum install re2c -y  </p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/PHP/" rel="tag"><i class="fas fa-tags"></i>PHP</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/05/17/Linux下安装比特币矿池p2pool笔记/" rel="next" title="Linux下安装比特币矿池p2pool笔记"><i class="fas fa-angle-left"></i><span class="nav-title">Linux下安装比特币矿池p2pool笔记</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/05/17/windows源码编译PHP7-1/" rel="prev" title="windows源码编译PHP7.1"><span class="nav-title">windows源码编译PHP7.1</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
   
   
 </div>
@@ -247,6 +329,11 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
     
     
     <hr>

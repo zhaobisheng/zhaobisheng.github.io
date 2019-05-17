@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>标签: hexo | Bison - 码海无涯，回头已秃。</title>
+    <title>Linux下安装比特币矿池p2pool笔记 | Bison - 码海无涯，回头已秃。</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -171,21 +171,148 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tag" class="tag page">
-  <h1 class="page-title">hexo</h1>
+<div id="post" class="page">
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/16/我的hexo博客搭建之旅/" itemprop="url">我的hexo博客搭建之旅</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-16T01:11:00+08:00">05-16</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://blog.funwan.cn/2019/05/17/Linux下安装比特币矿池p2pool笔记/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Bison Zhao">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/avatar.png">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Bison">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Linux下安装比特币矿池p2pool笔记</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:27:00+08:00">2019-05-17 16:27:00</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术类/" itemprop="url" rel="index"><span itemprop="name">技术类</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="Linux-ubuntu-centOS-下安装比特币矿池p2pool笔记"><a href="#Linux-ubuntu-centOS-下安装比特币矿池p2pool笔记" class="headerlink" title="Linux(ubuntu/centOS)下安装比特币矿池p2pool笔记"></a>Linux(ubuntu/centOS)下安装比特币矿池p2pool笔记</h1><p>##RHEL系列：</p>
+<p>###安装bitcoin钱包:</p>
+<ul>
+<li><p>rpm方式:<br><code>rpm -ivh http://linux.ringingliberty.com/bitcoin/el6/x86_64/bitcoin-release-1-6.noarch.rpm</code><br><code>yum install bitcoin-server</code> </p>
+</li>
+<li><p>创建 bitcoin.conf:<br><code>vi ~/.bitcoin/bitcoin.conf</code>  </p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined">rpcuser=RPC帐号<br>rpcpassword=RPC密码<br>server=1<br>rpcallowip=127.0.0.1<br>rpcport=8332<br>port=8333<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>立刻运行bitcoind:<br>  RHEL 7: Run:<code>systemctl start bitcoin</code><br>   RHEL 6: Run<code>chkconfig bitcoin on</code></li>
+<li>查看bitcoind运行信息:<code>bitcoin-cli getinfo</code> </li>
+<li><p>设置bitcoind开机运行:</p>
+<p>   根据系统版本<br>:   RHEL 6: Run<code>chkconfig bitcoin on</code><br>:   RHEL 7: Run:<code>systemctl enable bitcoin</code> </p>
+</li>
+<li><p>查看运行状态：</p>
+</li>
+<li><code>tail -f ~/.bitcoin/debug.log</code></li>
+</ul>
+<p>##安装矿池程序p2pool：</p>
+<ul>
+<li><p>安装pyhton2.7环境(方法太多，随便写点):<br><code>wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tgz -P /opt</code><br><code>tar xvf Python-2.7.3.tgz</code><br><code>./configure</code><br><code>make &amp;&amp; make install</code></p>
+</li>
+<li><p>pip安装zope.interface:<br><code>sudo pip install zope.interface</code></p>
+</li>
+<li><p>安装Twisted：<br><code>easy_install Twisted</code></p>
+</li>
+<li><p>资源地址:<br>zope.interface:<code>http://pypi.python.org/packages/source/z/zope.interface/zope.interface-4.0.1.tar.gz</code><br>rpm安装zope.interface:<code>http://rpmfind.net/linux/rpm2html/search.php?query=python-zope-interface</code><br>twisted:<code>http://twistedmatrix.com/Releases/Twisted/12.1/Twisted-12.1.0.tar.bz</code></p>
+</li>
+<li><p>从git获取的p2pool:<br><code>git clone https://github.com/forrestv/p2pool.git</code><br>没git的<code>yum install git</code></p>
+</li>
+</ul>
+<ul>
+<li>启动矿池:<br><code>cd p2pool</code><br><code>python run_p2pool.py rpc帐号 rpc密码 -a 钱包地址 --bitcoind-address 127.0.0.1 --net bitcoin --fee 0 --give-author 0 --no-bugreport --outgoing-conns 6</code></li>
+</ul>
+<p>##ubuntu系统：</p>
+<p>###安装bitcoin钱包:<br><code>sudo wget https://bitcoin.org/bin/bitcoin-core-0.15.1/bitcoin-0.15.1-x86_64-linux-gnu.tar.gz</code><br><code>sudo tar -xzf bitcoin-0.15.1-x86_64-linux-gnu.tar.gz</code><br><code>sudo cp bitcoin-0.15.1/bin/* /usr/bin</code></p>
+<ul>
+<li><p>创建 bitcoin.conf:<br><code>sudo vi ~/.bitcoin/bitcoin.conf</code>  </p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined">rpcuser=RPC帐号<br>rpcpassword=RPC密码<br>server=1<br>rpcallowip=127.0.0.1<br>rpcport=8332<br>port=8333<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>后台运行bitcoin钱包:<br><code>sudo bitcoind -daemon</code></p>
+</li>
+<li><p>查看运行状态：<br><code>sudo tail -f ~/.bitcoin/debug.log</code></p>
+</li>
+</ul>
+<p>##安装矿池程序p2pool：</p>
+<ul>
+<li><p>安装pyhton2.7环境:<br><code>sudo apt-get install python-zope.interface python-twisted python-twisted-web git python-dev</code><br><code>sudo apt-get install libpython2.7-stdlib</code></p>
+</li>
+<li><p>获取p2pool程序:<br><code>sudo git clone https://github.com/forrestv/p2pool.git</code></p>
+</li>
+<li><p>后台启动矿池：<br>SSH连接的终端需要用到screen: <code>sudo apt-get install screen</code><br><code>cd p2pool</code><br><code>screen -dmS myp2pool python run_p2pool.py rpc用户名 rpc密码 -a 钱包地址 --bitcoind-address 127.0.0.1 --net bitcoin --fee 0 --give-author 0 --no-bugreport --outgoing-conns 6</code></p>
+</li>
+<li><p>查看矿池:<br><code>screen -r myp2pool</code></p>
+</li>
+</ul>
+<p>##注：钱包不更新区块链数据包的，自己运行<br><code>bitcoind server</code></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/区块链/" rel="tag"><i class="fas fa-tags"></i>区块链</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
+    
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
+    
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/05/17/用GO编译一个可以在openwrt上运行的http-server程序-在路由器上运行/" rel="next" title="用GO编译一个可以在openwrt上运行的http_server程序(在路由器上运行)"><i class="fas fa-angle-left"></i><span class="nav-title">用GO编译一个可以在openwrt上运行的http_server程序(在路由器上运行)</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/05/17/CentOS下PHP7安装Phalcon3-x/" rel="prev" title="CentOS下PHP7安装Phalcon3.x"><span class="nav-title">CentOS下PHP7安装Phalcon3.x</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
   
   
 </div>
@@ -247,6 +374,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Linux-ubuntu-centOS-下安装比特币矿池p2pool笔记"><span class="toc-text">Linux(ubuntu/centOS)下安装比特币矿池p2pool笔记</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>
