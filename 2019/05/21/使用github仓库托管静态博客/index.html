@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>归档 | Bison - 码海无涯，回头已秃。</title>
+    <title>使用github仓库托管静态博客 | Bison - 码海无涯，回头已秃。</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -171,80 +171,129 @@
         <div class="main-container">
           <div class="content">
             
-<div id="archive" class="archive page">
-  <h1 class="page-title">归档</h1>
-  <h2 class="page-counter">
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://blog.funwan.cn/2019/05/21/使用github仓库托管静态博客/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Bison Zhao">
+       <meta itemprop="description" content>
+       <meta itemprop="image" content="/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Bison">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">使用github仓库托管静态博客</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-21T11:27:00+08:00">2019-05-21 11:27:00</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术类/" itemprop="url" rel="index"><span itemprop="name">技术类</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h4 id="前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。"><a href="#前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。" class="headerlink" title="前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。"></a>前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。</h4><hr>
+<h5 id="如果没有github账号的朋友可以先去github官网申请一个账号。-这个过程太简单了，我们就跳过"><a href="#如果没有github账号的朋友可以先去github官网申请一个账号。-这个过程太简单了，我们就跳过" class="headerlink" title="如果没有github账号的朋友可以先去github官网申请一个账号。(这个过程太简单了，我们就跳过)"></a>如果没有github账号的朋友可以先去<a href="http://www.github.com" target="_blank" rel="noopener">github官网</a>申请一个账号。(这个过程太简单了，我们就跳过)</h5><p><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/githubMain.jpg" alt="github主页"></p>
+<ul>
+<li>然后点击右上角的 <strong>+</strong> 号 ，选 <strong>New repository</strong>创建一个新的项目仓库 </li>
+</ul>
+<p><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/newRepo.jpg" alt></p>
+<ul>
+<li>创建一个与自己github名字 <code>同名.github.io</code> 的项目<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/createPage.jpg" alt></li>
+</ul>
+<ul>
+<li>然后在个人主页就可以看到这个仓库了</li>
+</ul>
+<h5 id="配置ssh连接Github"><a href="#配置ssh连接Github" class="headerlink" title="配置ssh连接Github"></a>配置ssh连接Github</h5><ul>
+<li>在命令行输入  <code>ssh-keygen</code> 然后一路回车，直到看到类似界面<br>(如果提示命令不存在，要先安装一下或者配置一下路径)<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/ssh-keygen.jpg" alt></li>
+</ul>
+<ol>
+<li><p>把ssh的key配置到Github，先 <code>vi ~/.ssh/id_rsa.pub</code> 把里面的内容复制<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/sshKey.jpg" alt></p>
+</li>
+<li><p>在github页面里点击右上角的头像，选择setting<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/setting.jpg" alt></p>
+</li>
+<li><p>找到 <code>SSH and GPG keys</code> 再点击 <code>New SSH key</code><br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/addSSh.jpg" alt></p>
+</li>
+<li><p>填写你的ssh-Key的标题和内容<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/addSSHKey.jpg" alt></p>
+</li>
+<li><p>点击 <code>Add SSH Key</code> 保存</p>
+</li>
+<li><p>在服务器输入<code>ssh -T git@github.com</code> 测试SSH是否设置成功<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/sshTest.jpg" alt></p>
+</li>
+<li><p>配置_config.yml 使用ssh的方式连接到github仓库<br><code>vi _config.yml</code></p>
+</li>
+</ol>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined">#repository:改成git@github.com:自己的博客仓库地址<br>#设置成功ssh方式连接后,可能会出现git全局配置信息错误的问题,配置github账号信息一下就行了<br>deploy:<br>  type: git<br>  repository: git@github.com:zhaobisheng/zhaobisheng.github.io.git<br>  branch: master<br></code></pre></td></tr></table></figure>
+<ol start="8">
+<li>依次执行</li>
+</ol>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">hexo clean<br>hexo g<br>hexo d<br></code></pre></td></tr></table></figure>
+<p><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/hexod.jpg" alt></p>
+<p>就会看到hexo同步到github仓库的信息，如果有错误信息，就是github账号信息没有配置成功，就填写一下 <code>~/.gitconfig</code> 里面的github账号信息。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Hexo/" rel="tag"><i class="fas fa-tags"></i>Hexo</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;" aria-hidden="true">
     
-    你已经写了 14 篇文章！
+    <div id="wechat">
+      <img id="wechat_qr" src="/images/WeChatPay.png" alt="微信支付">
+      <span>微信支付</span>
+    </div>
     
-  </h2>
+    
+    <div id="alipay">
+      <img id="alipay_qr" src="/images/AliPay.png" alt="支付宝">
+      <span>支付宝</span>
+    </div>
+    
+    
+  </div>
+</div>
+
+
   
   
-  
-  
-  <h2 class="page-title">2019
-  
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/17/mysql-ERROR-Unknown-suffix-used-for-variable-port-value-3306-解决方法/" itemprop="url">mysql: [ERROR] Unknown suffix '?' used for variable 'port' (value '3306?') 解决方法</a>
-      </h1>
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
       
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:19:00+08:00">05-17</time>
-      </span>
+      <a href="/2019/05/17/轻松打造自己的Cheat-Engine/" rel="next" title="轻松打造自己的Cheat Engine"><i class="fas fa-angle-left"></i><span class="nav-title">轻松打造自己的Cheat Engine</span></a>
       
-    </header>
-  </article>
-  
-  
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/17/golang中MongoDB的between查询/" itemprop="url">golang中MongoDB的between查询</a>
-      </h1>
+    </div>
+    <div class="page-nav-prev page-nav-item">
       
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:16:00+08:00">05-17</time>
-      </span>
-      
-    </header>
-  </article>
-  
-  
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/17/关于Mysql索引的笔记/" itemprop="url">关于Mysql索引的笔记</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-17T16:13:00+08:00">05-17</time>
-      </span>
-      
-    </header>
-  </article>
-  
-  
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2019/05/16/我的hexo博客搭建之旅/" itemprop="url">我的hexo博客搭建之旅</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-16T01:11:00+08:00">05-16</time>
-      </span>
-      
-    </header>
-  </article>
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fas fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    </div>
   </nav>
   
-</h2></div>
+  
+</div>
 
           </div>
           
@@ -303,6 +352,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。"><span class="toc-text">前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#如果没有github账号的朋友可以先去github官网申请一个账号。-这个过程太简单了，我们就跳过"><span class="toc-text">如果没有github账号的朋友可以先去github官网申请一个账号。(这个过程太简单了，我们就跳过)</span></a></li><li class="toc-item toc-level-5"><a class="list-group-item toc-link" href="#配置ssh连接Github"><span class="toc-text">配置ssh连接Github</span></a></li></ol></li></ol></div>
+    </div>
+    
     
     
     <hr>

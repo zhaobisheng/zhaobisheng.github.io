@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.funwan.cn/"/>
-  <updated>2019-05-19T09:26:10.316Z</updated>
+  <updated>2019-05-21T06:24:46.204Z</updated>
   <id>http://blog.funwan.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用github仓库托管静态博客</title>
+    <link href="http://blog.funwan.cn/2019/05/21/%E4%BD%BF%E7%94%A8github%E4%BB%93%E5%BA%93%E6%89%98%E7%AE%A1%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://blog.funwan.cn/2019/05/21/使用github仓库托管静态博客/</id>
+    <published>2019-05-21T03:27:00.000Z</published>
+    <updated>2019-05-21T06:24:46.204Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。"><a href="#前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。" class="headerlink" title="前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。"></a>前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。</h4><hr><h5 id="如果没有github账号的朋友可以先去github官网申请一个账号。-这个过程太简单了，我们就跳过"><a href="#如果没有github账号的朋友可以先去github官网申请一个账号。-这个过程太简单了，我们就跳过" class="headerlink" title="如果没有github账号的朋友可以先去github官网申请一个账号。(这个过程太简单了，我们就跳过)"></a>如果没有github账号的朋友可以先去<a href="http://www.github.com" target="_blank" rel="noopener">github官网</a>申请一个账号。(这个过程太简单了，我们就跳过)</h5><p><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/githubMain.jpg" alt="github主页"></p><ul><li>然后点击右上角的 <strong>+</strong> 号 ，选 <strong>New repository</strong>创建一个新的项目仓库 </li></ul><p><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/newRepo.jpg" alt></p><ul><li>创建一个与自己github名字 <code>同名.github.io</code> 的项目<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/createPage.jpg" alt></li></ul><ul><li>然后在个人主页就可以看到这个仓库了</li></ul><h5 id="配置ssh连接Github"><a href="#配置ssh连接Github" class="headerlink" title="配置ssh连接Github"></a>配置ssh连接Github</h5><ul><li>在命令行输入  <code>ssh-keygen</code> 然后一路回车，直到看到类似界面<br>(如果提示命令不存在，要先安装一下或者配置一下路径)<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/ssh-keygen.jpg" alt></li></ul><ol><li><p>把ssh的key配置到Github，先 <code>vi ~/.ssh/id_rsa.pub</code> 把里面的内容复制<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/sshKey.jpg" alt></p></li><li><p>在github页面里点击右上角的头像，选择setting<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/setting.jpg" alt></p></li><li><p>找到 <code>SSH and GPG keys</code> 再点击 <code>New SSH key</code><br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/addSSh.jpg" alt></p></li><li><p>填写你的ssh-Key的标题和内容<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/addSSHKey.jpg" alt></p></li><li><p>点击 <code>Add SSH Key</code> 保存</p></li><li><p>在服务器输入<code>ssh -T git@github.com</code> 测试SSH是否设置成功<br><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/sshTest.jpg" alt></p></li><li><p>配置_config.yml 使用ssh的方式连接到github仓库<br><code>vi _config.yml</code></p></li></ol><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined">#repository:改成git@github.com:自己的博客仓库地址<br>#设置成功ssh方式连接后,可能会出现git全局配置信息错误的问题,配置github账号信息一下就行了<br>deploy:<br>  type: git<br>  repository: git@github.com:zhaobisheng/zhaobisheng.github.io.git<br>  branch: master<br></code></pre></td></tr></table></figure><ol start="8"><li>依次执行</li></ol><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">hexo clean<br>hexo g<br>hexo d<br></code></pre></td></tr></table></figure><p><img src="https://bison-hexo.oss-cn-hangzhou.aliyuncs.com/articleImg/2019521/hexod.jpg" alt></p><p>就会看到hexo同步到github仓库的信息，如果有错误信息，就是github账号信息没有配置成功，就填写一下 <code>~/.gitconfig</code> 里面的github账号信息。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。&quot;&gt;&lt;a href=&quot;#前几天我们已经简单介绍了hexo博客的搭建过程，现在我们可以换一下玩法，把博客丢到github上托管了。&quot; class=&quot;headerl
+      
+    
+    </summary>
+    
+      <category term="技术类" scheme="http://blog.funwan.cn/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="Hexo" scheme="http://blog.funwan.cn/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>轻松打造自己的Cheat Engine</title>
@@ -94,6 +119,31 @@
   </entry>
   
   <entry>
+    <title>windows源码编译PHP7.1</title>
+    <link href="http://blog.funwan.cn/2019/05/17/windows%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91PHP7-1/"/>
+    <id>http://blog.funwan.cn/2019/05/17/windows源码编译PHP7-1/</id>
+    <published>2019-05-17T08:29:00.000Z</published>
+    <updated>2019-05-21T03:06:06.435Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-zhaobisheng1-article-details-78416640"><a href="#有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-zhaobisheng1-article-details-78416640" class="headerlink" title="有些图片可能加载不出，本文CSDN原地址:https://blog.csdn.net/zhaobisheng1/article/details/78416640"></a>有些图片可能加载不出，本文CSDN原地址:<a href="https://blog.csdn.net/zhaobisheng1/article/details/78416640" target="_blank" rel="noopener">https://blog.csdn.net/zhaobisheng1/article/details/78416640</a></h4><hr><h3 id="因为最近在研究PHP内核以及需要写一些PHP拓展，而且windows上关于php7-x源码编译安装的资料比较少，所以整合一下，这篇东西就出来了。"><a href="#因为最近在研究PHP内核以及需要写一些PHP拓展，而且windows上关于php7-x源码编译安装的资料比较少，所以整合一下，这篇东西就出来了。" class="headerlink" title="因为最近在研究PHP内核以及需要写一些PHP拓展，而且windows上关于php7.x源码编译安装的资料比较少，所以整合一下，这篇东西就出来了。"></a>因为最近在研究PHP内核以及需要写一些PHP拓展，而且windows上关于php7.x源码编译安装的资料比较少，所以整合一下，这篇东西就出来了。</h3><h5 id="本文章所使用到的工具"><a href="#本文章所使用到的工具" class="headerlink" title="本文章所使用到的工具:"></a>本文章所使用到的工具:</h5><ul><li><p><strong><a href="http://windows.php.net/downloads/releases/php-7.1.11-src.zip" target="_blank"> [ php-7.1.11-src.zip (php7.11源码)]</a></strong></p></li><li><p><strong><a href="http://windows.php.net/downloads/php-sdk/php-sdk-binary-tools-20110915.zip" target="_blank"> [ php-sdk-binary-tools-20110915.zip(flex_bison for php)]</a></strong></p></li><li><p><strong><a href="http://windows.php.net/downloads/php-sdk/deps-7.1-vc14-x64.7z" target="_blank"> [ deps-7.1-vc14-x64.7z(编译32位的请下载x86版本)]</a></strong></p></li><li><p><strong><a href="https://www.python.org/downloads/" target="_blank"> [安装python]</a></strong></p></li><li><p><strong>[visual studio 2015]</strong></p></li></ul><hr><h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ul><li><p><strong>1、</strong> C盘创建一个 <code>Build</code>文件夹</p></li><li><p><strong>2、</strong> 下载安装python，并把bin文件夹加入到环境变量path</p></li><li><p><strong>3、</strong> 下载好 php-7.1.11-src.zip、php-sdk-binary-tools-20110915.zip和deps-7.1-vc14-x64.7z</p></li><li><p><strong>4、</strong> 把php-sdk-binary-tools-20110915.zip解压到<code>Build</code>文件夹里面，将bin目录加入到环境变量path中，进入bin目录 <code>cd cd C:\Build\bin</code> 并在<code>phpsdk_buildtree.bat</code>里面<code>GOTO EXIT</code>之前加上VC14的支持：</p></li></ul><p>   MD %<em>%\vc14\x86\deps\bin<br>MD %</em>%\vc14\x86\deps\lib<br>MD %<em>%\vc14\x86\deps\include<br>MD %</em>%\vc14\x64\deps\bin<br>MD %<em>%\vc14\x64\deps\lib<br>MD %</em>%\vc14\x64\deps\include</p><p><img src="http://img.blog.csdn.net/20171101172624810?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><p> 然后执行<code>phpsdk_setvars.bat</code>和<code>phpsdk_buildtree.bat ..\phpdev</code> 查看<code>phpdev</code>文件夹已生成。</p><p><img src="http://img.blog.csdn.net/20171101171421084?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><p><img src="http://img.blog.csdn.net/20171101171839595?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><ul><li><strong>5、</strong> 把deps-7.1-vc14-x64.7z解压到<code>C:\Build\phpdev\vc14\x64</code> ,再把php-7.1.11-src.zip解压到 <code>C:\Build\phpdev\vc14\x64</code>并改名为php7 (注：如果要编译32位，把x64改成x86)，之后在<code>C:\Build\phpdev\vc14\x64</code>目录下新建一个<code>myphp7</code>文件夹</li></ul><p><img src="http://img.blog.csdn.net/20171101173051242?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><ul><li><p><strong>6、</strong>    从windows菜单列表找到<code>VS2015 x64 本机工具命令提示符</code>并打开（注：如果要编译32位的，则需进入VS2015 x86 本机工具命令提示符）</p></li><li><p><strong>7、</strong>    进入php源码目录下 <code>cd C:\Build\phpdev\vc14\x64\php7</code> ,执行 <code>buildconf</code>后查看是否已生成<code>configure.js</code></p></li><li><p><img src="http://img.blog.csdn.net/20171101173402202?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p></li><li><p><strong>8、</strong>   执行</p></li></ul><p>configure –disable-all –enable-cli  –enable-hash –enable-session –without-gd –with-bz2    –enable-sockets –enable-object-out-dir=..\myphp7 </p><p><img src="http://img.blog.csdn.net/20171101173522678?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><ul><li><strong>9、</strong>   最后执行<code>nmake</code>，经过漫长的等待之后在<code>myphp7</code>目录下会生成一个<code>Release_TS</code>,然后在里面找到php.exe就算成功了。</li></ul><p><img src="http://img.blog.csdn.net/20171101173702430?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><h3 id="好去处"><a href="#好去处" class="headerlink" title="好去处"></a>好去处</h3><ul><li><p><strong><a href="http://lancelot.blog.51cto.com/393579/1772931" target="_blank"> [PHP 7下编译memcache扩展]</a></strong></p></li><li><p><strong><a href="http://windows.php.net/downloads/php-sdk/" target="_blank"> [SDK下载地址]</a></strong></p></li><li><p><strong><a href="http://windows.php.net/downloads/releases/" target="_blank"> [PHP各版本源码下载]</a></strong></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-zhaobisheng1-article-details-78416640&quot;&gt;&lt;a href=&quot;#有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-z
+      
+    
+    </summary>
+    
+      <category term="技术类" scheme="http://blog.funwan.cn/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="PHP" scheme="http://blog.funwan.cn/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>简单写写华软mysise教务系统模拟登陆+获取课程表数据(打造自己的超级课程表)</title>
     <link href="http://blog.funwan.cn/2019/05/17/%E7%AE%80%E5%8D%95%E5%86%99%E5%86%99%E5%8D%8E%E8%BD%AFmysise%E6%95%99%E5%8A%A1%E7%B3%BB%E7%BB%9F%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86-%E8%8E%B7%E5%8F%96%E8%AF%BE%E7%A8%8B%E8%A1%A8%E6%95%B0%E6%8D%AE-%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E8%B6%85%E7%BA%A7%E8%AF%BE%E7%A8%8B%E8%A1%A8/"/>
     <id>http://blog.funwan.cn/2019/05/17/简单写写华软mysise教务系统模拟登陆-获取课程表数据-打造自己的超级课程表/</id>
@@ -117,31 +167,6 @@
       <category term="PHP" scheme="http://blog.funwan.cn/tags/PHP/"/>
     
       <category term="爬虫" scheme="http://blog.funwan.cn/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>windows源码编译PHP7.1</title>
-    <link href="http://blog.funwan.cn/2019/05/17/windows%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91PHP7-1/"/>
-    <id>http://blog.funwan.cn/2019/05/17/windows源码编译PHP7-1/</id>
-    <published>2019-05-17T08:29:00.000Z</published>
-    <updated>2019-05-21T03:06:06.435Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-zhaobisheng1-article-details-78416640"><a href="#有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-zhaobisheng1-article-details-78416640" class="headerlink" title="有些图片可能加载不出，本文CSDN原地址:https://blog.csdn.net/zhaobisheng1/article/details/78416640"></a>有些图片可能加载不出，本文CSDN原地址:<a href="https://blog.csdn.net/zhaobisheng1/article/details/78416640" target="_blank" rel="noopener">https://blog.csdn.net/zhaobisheng1/article/details/78416640</a></h4><hr><h3 id="因为最近在研究PHP内核以及需要写一些PHP拓展，而且windows上关于php7-x源码编译安装的资料比较少，所以整合一下，这篇东西就出来了。"><a href="#因为最近在研究PHP内核以及需要写一些PHP拓展，而且windows上关于php7-x源码编译安装的资料比较少，所以整合一下，这篇东西就出来了。" class="headerlink" title="因为最近在研究PHP内核以及需要写一些PHP拓展，而且windows上关于php7.x源码编译安装的资料比较少，所以整合一下，这篇东西就出来了。"></a>因为最近在研究PHP内核以及需要写一些PHP拓展，而且windows上关于php7.x源码编译安装的资料比较少，所以整合一下，这篇东西就出来了。</h3><h5 id="本文章所使用到的工具"><a href="#本文章所使用到的工具" class="headerlink" title="本文章所使用到的工具:"></a>本文章所使用到的工具:</h5><ul><li><p><strong><a href="http://windows.php.net/downloads/releases/php-7.1.11-src.zip" target="_blank"> [ php-7.1.11-src.zip (php7.11源码)]</a></strong></p></li><li><p><strong><a href="http://windows.php.net/downloads/php-sdk/php-sdk-binary-tools-20110915.zip" target="_blank"> [ php-sdk-binary-tools-20110915.zip(flex_bison for php)]</a></strong></p></li><li><p><strong><a href="http://windows.php.net/downloads/php-sdk/deps-7.1-vc14-x64.7z" target="_blank"> [ deps-7.1-vc14-x64.7z(编译32位的请下载x86版本)]</a></strong></p></li><li><p><strong><a href="https://www.python.org/downloads/" target="_blank"> [安装python]</a></strong></p></li><li><p><strong>[visual studio 2015]</strong></p></li></ul><hr><h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ul><li><p><strong>1、</strong> C盘创建一个 <code>Build</code>文件夹</p></li><li><p><strong>2、</strong> 下载安装python，并把bin文件夹加入到环境变量path</p></li><li><p><strong>3、</strong> 下载好 php-7.1.11-src.zip、php-sdk-binary-tools-20110915.zip和deps-7.1-vc14-x64.7z</p></li><li><p><strong>4、</strong> 把php-sdk-binary-tools-20110915.zip解压到<code>Build</code>文件夹里面，将bin目录加入到环境变量path中，进入bin目录 <code>cd cd C:\Build\bin</code> 并在<code>phpsdk_buildtree.bat</code>里面<code>GOTO EXIT</code>之前加上VC14的支持：</p></li></ul><p>   MD %<em>%\vc14\x86\deps\bin<br>MD %</em>%\vc14\x86\deps\lib<br>MD %<em>%\vc14\x86\deps\include<br>MD %</em>%\vc14\x64\deps\bin<br>MD %<em>%\vc14\x64\deps\lib<br>MD %</em>%\vc14\x64\deps\include</p><p><img src="http://img.blog.csdn.net/20171101172624810?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><p> 然后执行<code>phpsdk_setvars.bat</code>和<code>phpsdk_buildtree.bat ..\phpdev</code> 查看<code>phpdev</code>文件夹已生成。</p><p><img src="http://img.blog.csdn.net/20171101171421084?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><p><img src="http://img.blog.csdn.net/20171101171839595?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><ul><li><strong>5、</strong> 把deps-7.1-vc14-x64.7z解压到<code>C:\Build\phpdev\vc14\x64</code> ,再把php-7.1.11-src.zip解压到 <code>C:\Build\phpdev\vc14\x64</code>并改名为php7 (注：如果要编译32位，把x64改成x86)，之后在<code>C:\Build\phpdev\vc14\x64</code>目录下新建一个<code>myphp7</code>文件夹</li></ul><p><img src="http://img.blog.csdn.net/20171101173051242?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><ul><li><p><strong>6、</strong>    从windows菜单列表找到<code>VS2015 x64 本机工具命令提示符</code>并打开（注：如果要编译32位的，则需进入VS2015 x86 本机工具命令提示符）</p></li><li><p><strong>7、</strong>    进入php源码目录下 <code>cd C:\Build\phpdev\vc14\x64\php7</code> ,执行 <code>buildconf</code>后查看是否已生成<code>configure.js</code></p></li><li><p><img src="http://img.blog.csdn.net/20171101173402202?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p></li><li><p><strong>8、</strong>   执行</p></li></ul><p>configure –disable-all –enable-cli  –enable-hash –enable-session –without-gd –with-bz2    –enable-sockets –enable-object-out-dir=..\myphp7 </p><p><img src="http://img.blog.csdn.net/20171101173522678?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><ul><li><strong>9、</strong>   最后执行<code>nmake</code>，经过漫长的等待之后在<code>myphp7</code>目录下会生成一个<code>Release_TS</code>,然后在里面找到php.exe就算成功了。</li></ul><p><img src="http://img.blog.csdn.net/20171101173702430?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhb2Jpc2hlbmcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><h3 id="好去处"><a href="#好去处" class="headerlink" title="好去处"></a>好去处</h3><ul><li><p><strong><a href="http://lancelot.blog.51cto.com/393579/1772931" target="_blank"> [PHP 7下编译memcache扩展]</a></strong></p></li><li><p><strong><a href="http://windows.php.net/downloads/php-sdk/" target="_blank"> [SDK下载地址]</a></strong></p></li><li><p><strong><a href="http://windows.php.net/downloads/releases/" target="_blank"> [PHP各版本源码下载]</a></strong></p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-zhaobisheng1-article-details-78416640&quot;&gt;&lt;a href=&quot;#有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-z
-      
-    
-    </summary>
-    
-      <category term="技术类" scheme="http://blog.funwan.cn/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
-    
-    
-      <category term="PHP" scheme="http://blog.funwan.cn/tags/PHP/"/>
     
   </entry>
   
