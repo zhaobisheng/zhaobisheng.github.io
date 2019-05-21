@@ -206,7 +206,7 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <p>部署智能合约流程：</p>
+      <h4 id="有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-zhaobisheng1-article-details-80410325"><a href="#有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-zhaobisheng1-article-details-80410325" class="headerlink" title="有些图片可能加载不出，本文CSDN原地址:https://blog.csdn.net/zhaobisheng1/article/details/80410325"></a>有些图片可能加载不出，本文CSDN原地址:<a href="https://blog.csdn.net/zhaobisheng1/article/details/80410325" target="_blank" rel="noopener">https://blog.csdn.net/zhaobisheng1/article/details/80410325</a></h4><p>部署智能合约流程：</p>
 <p>1.solidity在线编译</p>
 <p>2.进入geth控制台</p>
 <p>3.部署智能合约</p>
@@ -224,7 +224,6 @@
 <p>当交易确认后，这个合约就算是部署成功了</p>
 <p>接下来我们调用测试一下</p>
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs undefined">myAccount=eth.accounts[0];<br>contractAddres=&quot;上面部署合约返回的地址&quot;;<br><br>abi=[&#123;xxxx&#125;]<br><br>//abi就算上面最早复制的一段代码<br><br>myContract=eth.contract(abi).at(contractAddres);<br><br>//然后myContract.xxx();就能调用合约里面的函数了，例如我的getBalance()<br>myContract.getBalance(myAccount);<br></code></pre></td></tr></table></figure>
-
     </main>
     <footer class="post-footer">
       
@@ -338,6 +337,12 @@
     
     
     
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#有些图片可能加载不出，本文CSDN原地址-https-blog-csdn-net-zhaobisheng1-article-details-80410325"><span class="toc-text">有些图片可能加载不出，本文CSDN原地址:https://blog.csdn.net/zhaobisheng1/article/details/80410325</span></a></li></ol></div>
+    </div>
     
     
     
